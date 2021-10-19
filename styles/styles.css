@@ -55,6 +55,7 @@ body {
 }
 
 #Section-1 header .burger {
+  display: none;
   width: 42px;
   height: 24px;
   cursor: pointer;
@@ -195,6 +196,9 @@ body {
   }
   #Section-1 header nav.show {
     opacity: 1;
+  }
+  #Section-1 header .burger {
+    display: block;
   }
   #Section-1 header.show {
     position: fixed;
