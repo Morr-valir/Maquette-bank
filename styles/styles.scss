@@ -39,6 +39,7 @@ body{
         max-width: 1600px;
         margin: 0 auto;
         padding: 20px 0 0 0;
+        transition: all 0.5s ease-in-out;
         nav{
             a{
                 color: $colorlink;
@@ -54,6 +55,48 @@ body{
                 margin-left: 50px;
 
             }
+        }
+        .burger{
+            width: 42px;
+            height: 24px;
+            cursor: pointer;
+            position: absolute;
+            right: 5%;
+            top: 40px;
+            span{
+                display: block;
+                height: 4px;
+                width: 100%;
+                background: black;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                transition: all 0.5s ease-in-out;
+
+            }
+            span::before,span::after{
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 4px;
+                background: black;
+                transition: all 0.5s ease-in-out;
+            }
+            span::before{
+                transform:  translateY(-10px);
+            }
+            span::after{
+                transform: translateY(10px);
+            }
+        }
+        .burger.active span{
+            background:transparent;
+        }
+        .burger.active span::before{
+            transform:  translateY(0) rotate(45deg);
+        }
+        .burger.active span::after{
+            transform:  translateY(0) rotate(-45deg);
         }
 
     }
@@ -104,11 +147,35 @@ body{
         padding: 0 10px 0 10px;
         //Header menu
         header{
-            justify-content: center;
             .left{display: none;}
+            .right{
+                flex: 2;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                text-align: center;
+            }
+            nav{
+                display: flex;
+                flex-direction: column;
+                opacity: 0;
+                transition: all 0.5s ease-in-out;
+                a{padding: 10px 0;}
+            }
+            nav.show{
+                opacity: 1;
+            }
+        }
+        header.show{
+            position: fixed;
+            top: 0;
+            right: 0;
+            background: #f1effb;
+            width: 100%;
+            height: 100vh;
         }
         .container{
-            margin-top: 75px;
+            margin-top:0;
             justify-content: center;
             flex-direction: column;
             .banner-info{
